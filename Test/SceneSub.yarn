@@ -1,0 +1,21 @@
+﻿
+title: FridgeSub
+position: -95,-183
+---
+<<sub 这是一个冰箱>>
+<<sub 粉色的冰箱>>
+<<over>>
+===
+
+title: CupboardSub
+position: -95,-183
+---
+<<sub 这是一段测试字幕>>
+<<sub 这个文件被用于储存选择触发字幕相关等的内容>>
+<<sub 字幕不支持换行功能，所以尽可能控制每行的文字>>
+<<sub 但是一次性添加太多过短的字幕会影响效果>>
+<<sub 不过字幕样式会随着屏幕尺寸变化而自适应>>
+<<sub 由于没有对字幕进行行高的处理，如果文字过多就会像这样↓>>
+<<sub aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdadghasgduigaisdguikasgdaaasdasdasdasdasdasdsadassdasdasdasdsadasdasdasd>>
+<<over>>
+===

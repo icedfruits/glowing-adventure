@@ -1,0 +1,6 @@
+title: Variables
+---
+// 用变量前通知我
+// Scene/Cupboard : 测试用变量
+<<declare $isPink = true>>
+===

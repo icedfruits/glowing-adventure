@@ -5,27 +5,39 @@ using Manager.Event;
 using UnityEngine;
 using Yarn.Unity;
 // ReSharper disable MemberCanBeMadeStatic.Local
+// ReSharper disable once CheckNamespace
 
 namespace Manager.Dialogue
 {
     //通过挂载创建
     public class SpinnerCommands : MonoBehaviour
     {
-        private DialogueRunner _dialogueRunner;
+        private DialogueRunner _chatDialogueRunner;
+        private DialogueRunner _subDialogueRunner;
 
         private void Start()
         {
-            _dialogueRunner = ObjectDictionary.Instance.chatDialogueRunner;
-            Debug.Log(_dialogueRunner);
-            _dialogueRunner.AddCommandHandler<string>("event",Event);
-            _dialogueRunner.AddCommandHandler("chatOver",ChatOver);
-            _dialogueRunner.AddCommandHandler<string>("sub",PlaySub);
-            _dialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
-            _dialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
-            _dialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
-            _dialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
-            _dialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
-            _dialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
+            _chatDialogueRunner = ObjectDictionary.Instance.chatDialogueRunner;
+            _subDialogueRunner = ObjectDictionary.Instance.subDialogueRunner;
+            _chatDialogueRunner.AddCommandHandler<string>("event",Event);
+            _chatDialogueRunner.AddCommandHandler("over",ChatOver);
+            _chatDialogueRunner.AddCommandHandler<string>("sub",PlaySub);
+            _chatDialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
+            _chatDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
+            _chatDialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
+            _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
+            _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
+            _chatDialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
+            
+            _subDialogueRunner.AddCommandHandler<string>("event",Event);
+            _subDialogueRunner.AddCommandHandler("over",SubOver);
+            _subDialogueRunner.AddCommandHandler<string>("sub",PlaySub);
+            _subDialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
+            _subDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
+            _subDialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
+            _subDialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
+            _subDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
+            _subDialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
         }
 
         private void Event(string eventName)
@@ -46,6 +58,11 @@ namespace Manager.Dialogue
         {
             //待实现
         }
+        private void SubOver()
+        {
+            //待实现
+        }
+        
         
         //Subtitle
 
@@ -84,6 +101,5 @@ namespace Manager.Dialogue
             Debug.Log("字幕队列被清除");
             SubtitleManager.Instance.ClearSub(true);
         }
-
     }
 }
