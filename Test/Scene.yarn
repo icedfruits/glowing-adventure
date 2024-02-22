@@ -1,12 +1,12 @@
 ﻿title: Fridge
-position: -51,-216
+position: -122,-290
 ---
 <<jump Variables>>
 ===
 
 title: Cupboard
 name: 橱柜
-position: -51,-216
+position: -124,-441
 ---
 这是一段测试文本。
 这也是一段测试文本。
@@ -39,6 +39,7 @@ position: -51,-216
 ===
 
 title: wowPink
+position: -123,-111
 ---
 <<sub 真的是粉色吗？>>
 <<wait 2>>
