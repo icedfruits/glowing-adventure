@@ -15,6 +15,7 @@ namespace Manager.Dialogue
         private DialogueRunner _chatDialogueRunner;
         private DialogueRunner _subDialogueRunner;
 
+        //todo:lsub有问题 待修正
         private void Start()
         {
             _chatDialogueRunner = ObjectDictionary.Instance.chatDialogueRunner;
@@ -23,21 +24,22 @@ namespace Manager.Dialogue
             _chatDialogueRunner.AddCommandHandler("over",ChatOver);
             _chatDialogueRunner.AddCommandHandler<string>("sub",PlaySub);
             _chatDialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
-            _chatDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
+            // _chatDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
             _chatDialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
             _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
-            _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
+            // _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
             _chatDialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
             
             _subDialogueRunner.AddCommandHandler<string>("event",Event);
             _subDialogueRunner.AddCommandHandler("over",SubOver);
             _subDialogueRunner.AddCommandHandler<string>("sub",PlaySub);
             _subDialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
-            _subDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
+            // _subDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
             _subDialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
             _subDialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
-            _subDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
+            // _subDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
             _subDialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
+            _subDialogueRunner.AddCommandHandler<string>("holdSub",HoldSub);
         }
 
         private void Event(string eventName)
@@ -86,20 +88,25 @@ namespace Manager.Dialogue
             SubtitleManager.Instance.AddSub(text, waitTime);
         }
 
-        private void PlaySubtitleNow(string text)
-        {
-            SubtitleManager.Instance.AddSubTop(text);
-        }
-        
-        private void PlayLateSubtitleNow(string text, float waitTime)
-        {
-            SubtitleManager.Instance.AddSubTop(text, waitTime);
-        }
-
         private void ClearSubtitle()
         {
             Debug.Log("字幕队列被清除");
             SubtitleManager.Instance.ClearSub(true);
         }
+
+        private void HoldSub(string text)
+        {
+            //待实现
+        }
+
+        /*private void PlaySubtitleNow(string text)
+        {
+            SubtitleManager.Instance.AddSubTop(text);
+        }*/
+        
+        /*private void PlayLateSubtitleNow(string text, float waitTime)
+        {
+            SubtitleManager.Instance.AddSubTop(text, waitTime);
+        }*/
     }
 }
