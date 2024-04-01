@@ -1,4 +1,9 @@
 title: Variables
 ---
-。
+<<wait 1>>
+===
+
+title: Start
+---
+<<jump Variables>>
 ===
