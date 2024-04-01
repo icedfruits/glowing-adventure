@@ -23,23 +23,16 @@ namespace Manager.Dialogue
             _chatDialogueRunner.AddCommandHandler<string>("event",Event);
             _chatDialogueRunner.AddCommandHandler("over",ChatOver);
             _chatDialogueRunner.AddCommandHandler<string>("sub",PlaySub);
-            _chatDialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
-            // _chatDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
+            _chatDialogueRunner.AddCommandHandler<string>("btn",BtnText);
+            _chatDialogueRunner.AddCommandHandler<string>("nsub",PlaySubNow);
+            _chatDialogueRunner.AddCommandHandler<string, float>("hsub",PlayHoldSub);
             _chatDialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
-            _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
-            // _chatDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
-            _chatDialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
             
             _subDialogueRunner.AddCommandHandler<string>("event",Event);
             _subDialogueRunner.AddCommandHandler("over",SubOver);
             _subDialogueRunner.AddCommandHandler<string>("sub",PlaySub);
-            _subDialogueRunner.AddCommandHandler<string>("subtitle",PlaySubtitle);
-            // _subDialogueRunner.AddCommandHandler<string>("subtitleNow",PlaySubtitleNow);
+            _subDialogueRunner.AddCommandHandler<string, float>("hsub",PlayHoldSub);
             _subDialogueRunner.AddCommandHandler<string, float>("lsub",PlayLateSub);
-            _subDialogueRunner.AddCommandHandler<string, float>("lsubtitle",PlayLateSubtitle);
-            // _subDialogueRunner.AddCommandHandler<string, float>("lsubtitleNow",PlayLateSubtitleNow);
-            _subDialogueRunner.AddCommandHandler("clearSubtitle",ClearSubtitle);
-            _subDialogueRunner.AddCommandHandler<string>("holdSub",HoldSub);
         }
 
         private void Event(string eventName)
@@ -53,60 +46,40 @@ namespace Manager.Dialogue
                 Debug.LogError("Yarn spinner调用了不存在的事件");
             }
         }
-        
-        //Chat
 
         private void ChatOver()
         {
-            //待实现
+            ChatManager.Instance.ChatOver(_chatDialogueRunner.CurrentNodeName);
         }
         private void SubOver()
         {
-            //待实现
+            PlayLateSub("**OVER**" + _subDialogueRunner.CurrentNodeName, 0f);
         }
-        
-        
-        //Subtitle
+
+        private void BtnText(string text)
+        {
+            ChatManager.Instance.ChangeButtonText(text);
+        }
 
         private void PlaySub(string text)
-        {
-            PlaySubtitle(text);
-        }
-        
-        private void PlayLateSub(string text, float waitTime)
-        {
-            PlayLateSubtitle(text,waitTime);
-        }
-        
-        private void PlaySubtitle(string text)
         {
             SubtitleManager.Instance.AddSub(text);
         }
 
-        private void PlayLateSubtitle(string text, float waitTime)
-        {
-            SubtitleManager.Instance.AddSub(text, waitTime);
-        }
-
-        private void ClearSubtitle()
-        {
-            Debug.Log("字幕队列被清除");
-            SubtitleManager.Instance.ClearSub(true);
-        }
-
-        private void HoldSub(string text)
+        private void PlaySubNow(string text)
         {
             //待实现
         }
-
-        /*private void PlaySubtitleNow(string text)
-        {
-            SubtitleManager.Instance.AddSubTop(text);
-        }*/
         
-        /*private void PlayLateSubtitleNow(string text, float waitTime)
+        private void PlayHoldSub(string text, float holdTime)
         {
-            SubtitleManager.Instance.AddSubTop(text, waitTime);
-        }*/
+            SubtitleManager.Instance.AddSub(text, holdTime);
+        }
+        
+        private void PlayLateSub(string text, float waitTime)
+        {
+            SubtitleManager.Instance.AddSub(text, 0f, waitTime);
+        }
+
     }
 }
