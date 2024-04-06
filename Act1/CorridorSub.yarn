@@ -7,49 +7,62 @@ index: 3
 <<lsub 真希望能回到以前的时光 1f>>
 <<sub 不过就算真的给我机会>>
 <<sub 我也不会选择吧>>
-<<sub 也许大概应该>>
 ===
 
 title: PaperSub
 name: A4纸字幕
 index: 2-0
 ---
-<<sub 普通的A4纸>>
+<<sub “妈妈”>>
+<<sub “如果你看到这张纸”>>
+<<sub “请尽快打电话联系我”>>
+<<sub “我很想你”>>
+<<sub “tel:151********”>>
 ===
 
 title: BuddhaStatueSub
 name: 佛龛字幕
-index: ？-0
+index: 11-0
 ---
-<<sub 并不可爱的小佛>>
+<<sub 妈妈的笔迹>>
+<<sub “去点亮一根蜡烛” >>
+<<sub “让熟悉的光映红脸庞”>>
+<<sub “它明明沉默”>>
+<<sub “却如同诉说千言万语，慰藉我心”>>
+<<sub 妈妈的心是如此恳切>>
+<<sub 但它只是一根蜡烛而已>>
+<<sub 又能带来什么呢>>
 ===
 
 title: PrivateSpace
 name: 私人空间
 index: 17
 ---
-。
+<<sub 那边是我和妈妈的房间>>
+<<sub 都关着门>>
+<<sub 但肯定没有上锁>>
 ===
 
 title: DaughterRoomSub
 name: 女儿房间
 index: 18
 ---
-。
+<<sub 我自己的房间>>
+<<sub 也应该收拾一下了>>
 ===
 
 title: ToiletSub
 name: 厕所
 index: 19
 ---
-<<sub 先进厕所找东西很酷>>
-<<sub 说不定厕所会有些什么重要的东西呢>>
+<<sub 好像听到了里面的漏水声>>
 ===
 
 title: MomRoomSub
 name: 母亲房间
 index: 20
 ---
-。
+<<sub 妈妈的房间>>
+<<sub 帮忙整理一下也好>>
 ===
 
