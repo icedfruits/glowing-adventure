@@ -1,18 +1,7 @@
 ﻿title: Start
 position: -51,-216
 ---
-<<jump TestForLineview>>
-===
-
-title: TestForLineview
----
-女儿: <i>测试</i>文本啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-测试文本
--> 1
-    12
--> 2
-    23
-123
+<<jump Variables>>
 ===
 
 title: Cupboard

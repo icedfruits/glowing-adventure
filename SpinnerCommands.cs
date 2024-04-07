@@ -15,12 +15,9 @@ namespace Manager.Dialogue
         private DialogueRunner _chatDialogueRunner;
         private DialogueRunner _subDialogueRunner;
 
+        //todo:lsub有问题 待修正
         private void Start()
         {
-            if (GameObject.Find("SpinnerNoCommand"))
-            {
-                return;
-            }
             _chatDialogueRunner = ObjectDictionary.Instance.chatDialogueRunner;
             _subDialogueRunner = ObjectDictionary.Instance.subDialogueRunner;
             _chatDialogueRunner.AddCommandHandler<string>("event",Event);
